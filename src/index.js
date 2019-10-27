@@ -10,6 +10,10 @@ export default class Email extends Plugin {
   #textTemplate = Email.#defaultText;
   #subject = '';
 
+  get activeTransporters () {
+    return this.#transporters;
+  }
+
   /**
    * Set the html template to use instead of the default template.
    * Placeholder variables are defined with `{PLACEHOLDER}` and the following placeholders are currently available:
@@ -132,12 +136,7 @@ export default class Email extends Plugin {
         subject: subject,
         text: text,
         html: html
-      }, (err, info) => {
-        if (err) {
-          return reject(err);
-        }
-        return resolve(info);
-      });
+      }, (err, info) => err ? reject(err) : resolve(info));
     });
   };
 }

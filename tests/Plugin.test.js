@@ -93,4 +93,14 @@ describe('Tests for the Yolog email plugin.', () => {
     const resultAsObject = JSON.parse(result[0].value.message);
     expect(resultAsObject.subject).toEqual(`error - ${date.toISOString()}`);
   });
+
+  test('No recipients throws error!', () => {
+    expect(() => new Plugin([])).toThrow('Failed to initialize plugin. No recipients found.');
+  });
+
+  test('Creates a sendmail transporter if no other is included.', () => {
+    const plugin = new Plugin(['test@localhost']);
+    expect(plugin.activeTransporters).toHaveLength(1);
+    expect(plugin.activeTransporters[0].options.sendmail).toBe(true);
+  });
 });
