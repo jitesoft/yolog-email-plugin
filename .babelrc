@@ -1,0 +1,10 @@
+{
+  "presets": [
+    [
+      "@jitesoft/main",
+      {
+        "mode": "node"
+      }
+    ]
+  ]
+}
