@@ -1,0 +1,38 @@
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  image: jitesoft/node:latest
+  variables:
+    NODE_ENV: development
+    BLUEBIRD_DEBUG: 0
+  before_script:
+    - npm ci
+  script:
+    - npm run test
+  tags: [ jitesoft ]
+
+deploy:
+  stage: deploy
+  image: jitesoft/node:latest
+  variables:
+    NODE_ENV: development
+  before_script:
+    - npm ci
+  script:
+    - npm run build:prod
+    - npm version ${CI_COMMIT_TAG}
+    - npm publish --access public
+  after_script:
+    - rm -f ~/.npmrc
+  only:
+    - tags
+  tags: [ jitesoft ]
+
+include:
+  - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/dependency_scanning.yml
+
+scan:
+  extends: .scan:npm
