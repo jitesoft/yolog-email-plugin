@@ -49,12 +49,12 @@
         "babel-eslint": "^10.0.3",
         "babel-jest": "^24.9.0",
         "babel-loader": "^8.0.6",
-        "core-js": "^3.3.4",
+        "core-js": "^3.3.6",
         "cross-env": "^6.0.3",
         "eslint": "^6.6.0",
         "jest": "^24.9.0",
         "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.9"
+        "webpack-cli": "^3.3.10"
     },
     "scripts": {
         "test": "eslint src/ tests/ && jest && npm audit",
