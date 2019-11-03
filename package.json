@@ -54,7 +54,7 @@
         "eslint": "^6.6.0",
         "jest": "^24.9.0",
         "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.9"
+        "webpack-cli": "^3.3.10"
     },
     "scripts": {
         "test": "eslint src/ tests/ && jest && npm audit",
