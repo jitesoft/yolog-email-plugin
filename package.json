@@ -6,6 +6,7 @@
         "main": "src/index.js"
     },
     "main": "dist/index.js",
+    "module": "src/index.js",
     "author": {
         "name": "Johannes Tegnér",
         "email": "johannes@jitesoft.com",
@@ -39,13 +40,13 @@
         "url": "https://gitlab.com/jitesoft/open-source/javascript/yolog-plugins/email"
     },
     "peerDependencies": {
-        "@jitesoft/yolog": ">=2.6"
+        "@jitesoft/yolog": ">=2.6.5"
     },
     "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@jitesoft/babel-preset-main": "^1.6.3",
-        "@jitesoft/eslint-config": "^1.7.1",
-        "@jitesoft/yolog": "^2.6.3",
+        "@babel/core": "^7.7.0",
+        "@jitesoft/babel-preset-main": "^1.7.3",
+        "@jitesoft/eslint-config": "^1.7.2",
+        "@jitesoft/yolog": "^2.6.5",
         "babel-eslint": "^10.0.3",
         "babel-jest": "^24.9.0",
         "babel-loader": "^8.0.6",
