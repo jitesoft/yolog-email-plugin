@@ -3,7 +3,8 @@
     [
       "@jitesoft/main",
       {
-        "mode": "node"
+        "mode": "node",
+        "useBuiltIns": "entry"
       }
     ]
   ]
