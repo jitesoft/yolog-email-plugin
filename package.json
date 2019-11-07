@@ -43,7 +43,7 @@
         "@jitesoft/yolog": ">=2.6.5"
     },
     "devDependencies": {
-        "@babel/core": "^7.7.0",
+        "@babel/core": "^7.7.2",
         "@jitesoft/babel-preset-main": "^1.7.3",
         "@jitesoft/eslint-config": "^1.7.2",
         "@jitesoft/yolog": "^2.6.5",
