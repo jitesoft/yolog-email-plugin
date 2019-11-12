@@ -33,11 +33,11 @@
         ]
     },
     "bugs": {
-        "url": "https://gitlab.com/jitesoft/open-source/javascript/yolog-plugins/email/issues"
+        "url": "https://github.com/jitesoft/yolog-email.plugin/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/jitesoft/open-source/javascript/yolog-plugins/email"
+        "url": "https://github.com/jitesoft/yolog-email-plugin"
     },
     "peerDependencies": {
         "@jitesoft/yolog": ">=2.6.5"
