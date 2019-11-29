@@ -11,7 +11,6 @@ test:
     - npm ci
   script:
     - npm run test
-  tags: [ jitesoft ]
 
 deploy:
   stage: deploy
@@ -26,7 +25,7 @@ deploy:
     - npm publish --access public
   only:
     - tags
-  tags: [ jitesoft ]
+  tags: [ jitesoft, protected, npm ]
 
 include:
   - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/dependency_scanning.yml
