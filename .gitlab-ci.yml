@@ -1,34 +1,21 @@
+include:
+  - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/dependency_scanning.yml
+  - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/js_common.yml
+
 stages:
   - test
   - deploy
 
 test:
-  stage: test
-  image: jitesoft/node:latest
-  variables:
-    NODE_ENV: development
-  before_script:
-    - npm ci
-  script:
-    - npm run test
+  extends: .npm:test
 
 deploy:
-  stage: deploy
-  image: jitesoft/node:latest
+  extends: .npm:build:deploy
   variables:
     NODE_ENV: development
-  before_script:
-    - npm ci
-  script:
-    - npm run build:prod
-    - npm version ${CI_COMMIT_TAG}
-    - npm publish --access public
-  only:
-    - tags
-  tags: [ jitesoft, protected, npm ]
-
-include:
-  - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/dependency_scanning.yml
 
 scan:
   extends: .scan:npm
+
+
+
