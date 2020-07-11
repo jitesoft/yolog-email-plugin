@@ -40,21 +40,21 @@
         "url": "https://github.com/jitesoft/yolog-email-plugin"
     },
     "peerDependencies": {
-        "@jitesoft/yolog": ">=2.7"
+        "@jitesoft/yolog": ">=3.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.9.0",
-        "@jitesoft/babel-preset-main": "^2.2.1",
-        "@jitesoft/eslint-config": "^1.10.3",
-        "@jitesoft/yolog": "^2.7",
+        "@babel/core": "^7.10.4",
+        "@jitesoft/babel-preset-main": "^2.4.0",
+        "@jitesoft/eslint-config": "^2.3.0",
+        "@jitesoft/yolog": "^3.0",
         "babel-eslint": "^10.1.0",
-        "babel-jest": "^25.1.0",
+        "babel-jest": "^26.1.0",
         "babel-loader": "^8.1.0",
-        "core-js": "^3.6.4",
+        "core-js": "^3.6.5",
         "cross-env": "^7.0.2",
-        "eslint": "^7.0.0-alpha.2",
-        "jest": "^25.1.0",
-        "webpack": "^5.0.0-beta.14",
+        "eslint": "^7.4.0",
+        "jest": "^26.1.0",
+        "webpack": "^5.0.0-beta.22",
         "webpack-cli": "^4.0.0-beta.8"
     },
     "scripts": {
@@ -63,6 +63,6 @@
         "build:dev": "cross-env NODE_ENV=development webpack"
     },
     "dependencies": {
-        "nodemailer": "^6.4.6"
+        "nodemailer": "^6.4.10"
     }
 }
