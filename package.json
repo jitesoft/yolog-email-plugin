@@ -23,9 +23,6 @@
         "node",
         "email"
     ],
-    "engines": {
-        "node": ">=8"
-    },
     "jest": {
         "collectCoverage": true,
         "coverageReporters": [
