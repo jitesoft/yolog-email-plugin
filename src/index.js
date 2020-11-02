@@ -2,7 +2,7 @@ import { Plugin } from '@jitesoft/yolog';
 import nodemailer from 'nodemailer';
 
 export default class Email extends Plugin {
-  /** @var {Mailer[]} */
+  /** @var {Mail[]} */
   #transporters = [];
   #recipients = [];
   #sender = '';
@@ -69,7 +69,7 @@ export default class Email extends Plugin {
    * @param {Array<String>} recipients               Recipients email addresses as array.
    * @param {String} sender                          Sender email address, can be in the form of `Name <email@local.com>` if wanted..
    * @param {String} subject                         Subject template, see setTextTemplate or setHtmlTemplate for parameter values.
-   * @param {Array<Mailer>|Array<Object>} transports Nodemailer transporters as array.
+   * @param {Array<Mail>|Array<Object>} transports Nodemailer transporters as array.
    */
   constructor (recipients = [], sender = 'yolog-email-plugin@localhost', subject = '{TAG} - {DATETIME}', transports = []) {
     super();
@@ -129,14 +129,12 @@ export default class Email extends Plugin {
   }
 
   static #sendMail = async (sender, recipients, subject, text, html, transport) => {
-    return new Promise((resolve, reject) => {
-      transport.sendMail({
-        from: sender,
-        to: recipients,
-        subject: subject,
-        text: text,
-        html: html
-      }, (err, info) => err ? reject(err) : resolve(info));
+    return transport.sendMail({
+      from: sender,
+      to: recipients,
+      subject: subject,
+      text: text,
+      html: html
     });
-  };
+  }
 }
