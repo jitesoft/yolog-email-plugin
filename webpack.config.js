@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: '@jitesoft/yolog-sentry-plugin',
+    library: '@jitesoft/yolog-email-plugin',
     globalObject: 'this'
   },
   externals: {
