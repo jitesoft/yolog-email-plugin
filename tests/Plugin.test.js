@@ -1,12 +1,17 @@
 import Plugin from '../src/index';
 import nodemailer from 'nodemailer';
 
-const plugin = new Plugin(
-  ['test@example.com', 'test@localhost', 'Test McTest <test@local>'],
-  'Tester McTestington the third <test@localhost>', '{TAG} - {DATETIME}',
-  [nodemailer.createTransport({ jsonTransport: true })]);
+let plugin = null;
 
 describe('Tests for the Yolog email plugin.', () => {
+  beforeEach(() => {
+    plugin = new Plugin(
+      ['test@example.com', 'test@localhost', 'Test McTest <test@local>'],
+      'Tester McTestington the third <test@localhost>', '{TAG} - {DATETIME}',
+      [nodemailer.createTransport({ jsonTransport: true })]
+    );
+  });
+
   test('Emails are sent to recipients.', async () => {
     const result = await plugin.log('error', Date.now(), 'Message!', new Error('...'));
     const resultAsObject = JSON.parse(result[0].value.message);
@@ -96,6 +101,16 @@ describe('Tests for the Yolog email plugin.', () => {
 
   test('No recipients throws error!', () => {
     expect(() => new Plugin([])).toThrow('Failed to initialize plugin. No recipients found.');
+  });
+
+  test('No error results in ´undefined´ string value instead of callstack.', async () => {
+    const d = new Date();
+    const tag = 'error';
+    const message = 'Hi, this is the message!';
+    const result = await plugin.log(tag, d, message, null);
+    const resultAsObject = JSON.parse(result[0].value.message);
+
+    expect(resultAsObject.text).toEqual(`Logged a log message with ${tag} tag at ${d.toISOString()}.\n\nMessage: ${message}\n\nCallstack:\nundefined`);
   });
 
   test('Creates a sendmail transporter if no other is included.', () => {

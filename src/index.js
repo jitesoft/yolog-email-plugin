@@ -96,10 +96,10 @@ export default class Email extends Plugin {
   /**
    * Method called when a log message is intercepted and the plugin is listening to the given tag.
    *
-   * @param {String} tag       Tag which was used when logging the message.
-   * @param {Number} timestamp Timestamp (in ms) when the log was intercepted by the Yolog instance.
-   * @param {String} message   Message to log.
-   * @param {Error}  error     Error to use for call stack etc.
+   * @param {String}     tag       Tag which was used when logging the message.
+   * @param {Number}     timestamp Timestamp (in ms) when the log was intercepted by the Yolog instance.
+   * @param {String}     message   Message to log.
+   * @param {Error|null} [error]   Error to use for call stack etc.
    * @return Promise<*>
    */
   async log (tag, timestamp, message, error) {
@@ -107,19 +107,19 @@ export default class Email extends Plugin {
       .replace('{MESSAGE}', message)
       .replace('{DATETIME}', new Date(timestamp).toISOString())
       .replace('{TAG}', tag)
-      .replace('{STACKTRACE}', error.stack);
+      .replace('{STACKTRACE}', error?.stack);
 
     const textTemplate = this.#textTemplate
       .replace('{MESSAGE}', message)
       .replace('{DATETIME}', new Date(timestamp).toISOString())
       .replace('{TAG}', tag)
-      .replace('{STACKTRACE}', error.stack);
+      .replace('{STACKTRACE}', error?.stack);
 
     const subject = this.#subject
       .replace('{MESSAGE}', message)
       .replace('{DATETIME}', new Date(timestamp).toISOString())
       .replace('{TAG}', tag)
-      .replace('{STACKTRACE}', error.stack);
+      .replace('{STACKTRACE}', error?.stack);
 
     const promises = this.#transporters.map((t) => {
       return Email.#sendMail(this.#sender, this.#recipients, subject, textTemplate, htmlTemplate, t);
