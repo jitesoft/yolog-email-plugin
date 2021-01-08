@@ -40,19 +40,19 @@
         "@jitesoft/yolog": ">=3.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.3",
+        "@babel/core": "^7.12.10",
         "@babel/eslint-parser": "^7.12.1",
-        "@jitesoft/babel-preset-main": "^2.6.1",
-        "@jitesoft/eslint-config": "^2.9.1",
-        "@jitesoft/yolog": "^3.1.2",
-        "babel-jest": "^26.6.1",
-        "babel-loader": "^8.1.0",
-        "core-js": "^3.6.5",
-        "cross-env": "^7.0.2",
-        "eslint": "^7.12.1",
-        "jest": "^26.6.1",
-        "webpack": "^5.3.2",
-        "webpack-cli": "^4.1.0"
+        "@jitesoft/babel-preset-main": "^2.7.3",
+        "@jitesoft/eslint-config": "^2.12.0",
+        "@jitesoft/yolog": "^3.1.4",
+        "babel-jest": "^27.0.0-next.2",
+        "babel-loader": "^8.2.2",
+        "core-js": "^3.8.2",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.17.0",
+        "jest": "^27.0.0-next.2",
+        "webpack": "^5.11.1",
+        "webpack-cli": "^4.3.1"
     },
     "scripts": {
         "lint": "eslint src/ tests/",
@@ -61,6 +61,6 @@
         "build:dev": "cross-env NODE_ENV=development webpack"
     },
     "dependencies": {
-        "nodemailer": "^6.4.14"
+        "nodemailer": "^6.4.17"
     }
 }
