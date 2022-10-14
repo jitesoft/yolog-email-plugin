@@ -37,22 +37,22 @@
         "url": "https://github.com/jitesoft/yolog-email-plugin"
     },
     "peerDependencies": {
-        "@jitesoft/yolog": ">=3.2"
+        "@jitesoft/yolog": ">=3.3"
     },
     "devDependencies": {
-        "@babel/core": "^7.18.2",
-        "@babel/eslint-parser": "^7.18.2",
-        "@jitesoft/babel-preset-main": "^3.0.1",
-        "@jitesoft/eslint-config": "^4.1.2",
-        "@jitesoft/yolog": "^3.2.1",
-        "babel-jest": "^28.1.0",
+        "@babel/core": "^7.19.3",
+        "@babel/eslint-parser": "^7.19.1",
+        "@jitesoft/babel-preset-main": "^4.0.3",
+        "@jitesoft/eslint-config": "^4.1.8",
+        "@jitesoft/yolog": "^3.3.0",
+        "babel-jest": "^29.2.0",
         "babel-loader": "^8.2.5",
-        "core-js": "^3.22.8",
+        "core-js": "^3.25.5",
         "cross-env": "^7.0.3",
-        "eslint": "^8.17.0",
-        "jest": "^28.1.0",
-        "webpack": "^5.73.0",
-        "webpack-cli": "^4.9.2"
+        "eslint": "^8.25.0",
+        "jest": "^29.2.0",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
     },
     "scripts": {
         "lint": "eslint src/ tests/",
@@ -61,7 +61,7 @@
         "build:dev": "cross-env NODE_ENV=development webpack"
     },
     "dependencies": {
-        "nodemailer": "^6.7",
-        "@babel/runtime-corejs3": "^7.18"
+        "nodemailer": "^6.8",
+        "@babel/runtime-corejs3": "^7.19"
     }
 }
