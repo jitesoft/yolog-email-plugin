@@ -1,13 +1,26 @@
 import { Plugin } from '@jitesoft/yolog';
 import nodemailer from 'nodemailer';
 
+
+const defaultText = 'Logged a log message with {TAG} tag at {DATETIME}.\n\nMessage: {MESSAGE}\n\nCallstack:\n{STACKTRACE}';
+const defaultHtml = `<div>
+    <span style="font-size: 1.4em; text-decoration: underline;">{TAG} message logged.</span>
+    <pre>At: {DATETIME}</pre>
+    <div style="padding-top: 1em;">
+        <span style="text-decoration: underline; line-height: 0.4em;">Message:</span>
+        <p>{MESSAGE}</p>
+    </div>
+    <pre style="border: 1px black dotted; font-size: 1em; width: max-content; padding: 1em 3em;">{STACKTRACE}</pre>
+    <span style="font-size: 0.6em;">This message was logged via the <a style="text-decoration: none;" href="https://www.npmjs.com/package/@jitesoft/yolog"><code>@jitesoft/yolog</code></a> email plugin.</span>
+</div>`;
+
 export default class Email extends Plugin {
   /** @var {Mail[]} */
   #transporters = [];
   #recipients = [];
   #sender = '';
-  #htmlTemplate = Email.#defaultHtml;
-  #textTemplate = Email.#defaultText;
+  #htmlTemplate = defaultHtml;
+  #textTemplate = defaultText;
   #subject = '';
 
   get activeTransporters () {
@@ -48,28 +61,16 @@ export default class Email extends Plugin {
     this.#textTemplate = template;
   }
 
-  static #defaultText = 'Logged a log message with {TAG} tag at {DATETIME}.\n\nMessage: {MESSAGE}\n\nCallstack:\n{STACKTRACE}';
-  static #defaultHtml = `<div>
-    <span style="font-size: 1.4em; text-decoration: underline;">{TAG} message logged.</span>
-    <pre>At: {DATETIME}</pre>
-    <div style="padding-top: 1em;">
-        <span style="text-decoration: underline; line-height: 0.4em;">Message:</span>
-        <p>{MESSAGE}</p>
-    </div>
-    <pre style="border: 1px black dotted; font-size: 1em; width: max-content; padding: 1em 3em;">{STACKTRACE}</pre>
-    <span style="font-size: 0.6em;">This message was logged via the <a style="text-decoration: none;" href="https://www.npmjs.com/package/@jitesoft/yolog"><code>@jitesoft/yolog</code></a> email plugin.</span>
-</div>`;
-
   /**
    * Email plugin constructor.
    *
    * If no transport is passed, the plugin instance will try to create a sendmail transport using
    * localhost sendmail. If this does not exist on the system, the plugin will likely crash.
    *
-   * @param {Array<String>} recipients               Recipients email addresses as array.
-   * @param {String} sender                          Sender email address, can be in the form of `Name <email@local.com>` if wanted..
-   * @param {String} subject                         Subject template, see setTextTemplate or setHtmlTemplate for parameter values.
-   * @param {Array<Mail>|Array<Object>} transports Nodemailer transporters as array.
+   * @param {Array<String>} recipients      Recipients email addresses as array.
+   * @param {String} sender                 Sender email address, can be in the form of `Name <email@local.com>` if wanted..
+   * @param {String} subject                Subject template, see setTextTemplate or setHtmlTemplate for parameter values.
+   * @param {Array<Mail|Object>} transports Nodemailer transporters as array.
    */
   constructor (recipients = [], sender = 'yolog-email-plugin@localhost', subject = '{TAG} - {DATETIME}', transports = []) {
     super();
@@ -132,9 +133,9 @@ export default class Email extends Plugin {
     return transport.sendMail({
       from: sender,
       to: recipients,
-      subject: subject,
-      text: text,
-      html: html
+      subject,
+      text,
+      html
     });
-  }
+  };
 }
