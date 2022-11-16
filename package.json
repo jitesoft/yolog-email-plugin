@@ -40,18 +40,18 @@
         "@jitesoft/yolog": ">=3.3"
     },
     "devDependencies": {
-        "@babel/core": "^7.19.3",
+        "@babel/core": "^7.20.2",
         "@babel/eslint-parser": "^7.19.1",
-        "@jitesoft/babel-preset-main": "^4.0.3",
-        "@jitesoft/eslint-config": "^4.1.8",
-        "@jitesoft/yolog": "^3.3.0",
-        "babel-jest": "^29.2.0",
-        "babel-loader": "^8.2.5",
-        "core-js": "^3.25.5",
+        "@jitesoft/babel-preset-main": "^4.1.0",
+        "@jitesoft/eslint-config": "^4.1.12",
+        "@jitesoft/yolog": "^3.3.1",
+        "babel-jest": "^29.3.1",
+        "babel-loader": "^9.1.0",
+        "core-js": "^3.26.1",
         "cross-env": "^7.0.3",
-        "eslint": "^8.25.0",
-        "jest": "^29.2.0",
-        "webpack": "^5.74.0",
+        "eslint": "^8.27.0",
+        "jest": "^29.3.1",
+        "webpack": "^5.75.0",
         "webpack-cli": "^4.10.0"
     },
     "scripts": {
@@ -62,6 +62,6 @@
     },
     "dependencies": {
         "nodemailer": "^6.8",
-        "@babel/runtime-corejs3": "^7.19"
+        "@babel/runtime-corejs3": "^7.20"
     }
 }
