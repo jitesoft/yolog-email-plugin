@@ -42,7 +42,7 @@
     "devDependencies": {
         "@babel/core": "^7.20.2",
         "@babel/eslint-parser": "^7.19.1",
-        "@jitesoft/babel-preset-main": "^4.1.0",
+        "@jitesoft/babel-preset-main": "^4.1.1",
         "@jitesoft/eslint-config": "^4.1.12",
         "@jitesoft/yolog": "^3.3.1",
         "babel-jest": "^29.3.1",
