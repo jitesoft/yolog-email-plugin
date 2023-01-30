@@ -50,7 +50,7 @@
         "@jitesoft/babel-preset-main": "^4.1.2",
         "@jitesoft/eslint-config": "^4.1.16",
         "@jitesoft/yolog": "^3.3.2",
-        "babel-jest": "^29.3.1",
+        "babel-jest": "^29.4.1",
         "babel-loader": "^9.1.2",
         "core-js": "^3.27.1",
         "cross-env": "^7.0.3",
