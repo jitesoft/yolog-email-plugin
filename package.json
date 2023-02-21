@@ -67,6 +67,6 @@
     },
     "dependencies": {
         "nodemailer": "^6.9",
-        "@babel/runtime-corejs3": "^7.20"
+        "@babel/runtime-corejs3": "^7.21"
     }
 }
