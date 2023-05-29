@@ -45,7 +45,7 @@
         }
     },
     "devDependencies": {
-        "@babel/core": "^7.21.8",
+        "@babel/core": "^7.22.1",
         "@babel/eslint-parser": "^7.21.8",
         "@jitesoft/babel-preset-main": "^5.1.1",
         "@jitesoft/eslint-config": "^4.2.0",
