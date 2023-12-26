@@ -51,7 +51,7 @@ describe('Tests for the Yolog email plugin.', () => {
     const result = await plugin.log(tag, d, message, error);
     const resultAsObject = JSON.parse(result[0].value.message);
 
-    expect(resultAsObject.html).toEqual(`<div>
+    expect(resultAsObject.html).toBe(`<div>
     <span style="font-size: 1.4em; text-decoration: underline;">${tag} message logged.</span>
     <pre>At: ${d.toISOString()}</pre>
     <div style="padding-top: 1em;">
@@ -73,7 +73,7 @@ describe('Tests for the Yolog email plugin.', () => {
     const result = await plugin.log(tag, d, message, error);
     const resultAsObject = JSON.parse(result[0].value.message);
 
-    expect(resultAsObject.text).toEqual(`Logged a log message with ${tag} tag at ${d.toISOString()}.\n\nMessage: ${message}\n\nCallstack:\n${stacktrace}`);
+    expect(resultAsObject.text).toBe(`Logged a log message with ${tag} tag at ${d.toISOString()}.\n\nMessage: ${message}\n\nCallstack:\n${stacktrace}`);
   });
 
   test('Message is correctly parsed as none-default HTML.', async () => {
@@ -81,7 +81,7 @@ describe('Tests for the Yolog email plugin.', () => {
     const result = await plugin.log('error', Date.now(), 'anything', new Error());
     const resultAsObject = JSON.parse(result[0].value.message);
 
-    expect(resultAsObject.html).toEqual('<a href="abc123">hej! error</a>');
+    expect(resultAsObject.html).toBe('<a href="abc123">hej! error</a>');
   });
 
   test('Message is correctly parsed as none-default Text.', async () => {
@@ -89,14 +89,14 @@ describe('Tests for the Yolog email plugin.', () => {
     const result = await plugin.log('error', Date.now(), 'anything', new Error());
     const resultAsObject = JSON.parse(result[0].value.message);
 
-    expect(resultAsObject.text).toEqual('Hej! error anything');
+    expect(resultAsObject.text).toBe('Hej! error anything');
   });
 
   test('Subject is correct.', async () => {
     const date = new Date();
     const result = await plugin.log('error', date, 'anything', new Error());
     const resultAsObject = JSON.parse(result[0].value.message);
-    expect(resultAsObject.subject).toEqual(`error - ${date.toISOString()}`);
+    expect(resultAsObject.subject).toBe(`error - ${date.toISOString()}`);
   });
 
   test('No recipients throws error!', () => {
@@ -110,7 +110,7 @@ describe('Tests for the Yolog email plugin.', () => {
     const result = await plugin.log(tag, d, message, null);
     const resultAsObject = JSON.parse(result[0].value.message);
 
-    expect(resultAsObject.text).toEqual(`Logged a log message with ${tag} tag at ${d.toISOString()}.\n\nMessage: ${message}\n\nCallstack:\nundefined`);
+    expect(resultAsObject.text).toBe(`Logged a log message with ${tag} tag at ${d.toISOString()}.\n\nMessage: ${message}\n\nCallstack:\nundefined`);
   });
 
   test('Creates a sendmail transporter if no other is included.', () => {

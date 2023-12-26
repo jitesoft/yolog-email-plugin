@@ -1,7 +1,6 @@
 import { Plugin } from '@jitesoft/yolog';
 import nodemailer from 'nodemailer';
 
-
 const defaultText = 'Logged a log message with {TAG} tag at {DATETIME}.\n\nMessage: {MESSAGE}\n\nCallstack:\n{STACKTRACE}';
 const defaultHtml = `<div>
     <span style="font-size: 1.4em; text-decoration: underline;">{TAG} message logged.</span>
